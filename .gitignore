@@ -1,0 +1,10 @@
+*.pdb
+*.exe
+*.config
+*.cache
+*.resources
+*.baml
+*.txt
+Debug/
+Release/
+*.suo
