@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}</ProjectGuid>
+    <ProjectGuid>{672E4C0B-9DDA-41C1-90CF-C79F0647A9B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GMTools.Dependencies</RootNamespace>
-    <AssemblyName>GMTools.Dependencies</AssemblyName>
+    <RootNamespace>SineRequieEntityPlugins</RootNamespace>
+    <AssemblyName>SineRequieEntityPlugins</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,33 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\NavigationPropertyAttribute.cs" />
-    <Compile Include="Custom\ICustomPlugin.cs" />
-    <Compile Include="DataSet\IDataProvider.cs" />
-    <Compile Include="DataSet\IndexedEntity.cs" />
-    <Compile Include="DataSet\IRepository.cs" />
-    <Compile Include="Entity\IEntityDeleteView.cs" />
-    <Compile Include="Entity\IEntitySearchView.cs" />
-    <Compile Include="Entity\IEntityEditView.cs" />
-    <Compile Include="Entity\IEntityAddView.cs" />
-    <Compile Include="Entity\IEntityDetailsView.cs" />
-    <Compile Include="Localization\ILocalizationProvider.cs" />
-    <Compile Include="Localization\LocalizedEntry.cs" />
-    <Compile Include="Localization\LocalizedEntryCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

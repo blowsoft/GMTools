@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+using GMTools.Dependencies.Custom;
 
 namespace GMTools.Bootstrapper
 {
@@ -28,6 +30,9 @@ namespace GMTools.Bootstrapper
         
         [Import(typeof(IDataProvider))]
         private IDataProvider _dataProvider;
+
+        [ImportMany(typeof(ICustomPlugin))]
+        private IEnumerable<ICustomPlugin> _customPlugins; 
 
         private readonly ILocalizationProvider _localizationProvider;
 
@@ -99,6 +104,11 @@ namespace GMTools.Bootstrapper
                 EntityTab.Items.Add(tabItem);
 
                 await _dataProvider.Repository(type).GenerateTableAsync();
+
+                foreach (var plugin in _customPlugins)
+                {
+                    plugin.Window.Show();
+                }
             }
         }
     }
