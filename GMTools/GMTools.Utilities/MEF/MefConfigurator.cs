@@ -26,7 +26,6 @@ namespace GMTools.Utilities.MEF
             var catalog = new AggregateCatalog();
             catalog.Catalogs.Add(new DirectoryCatalog(GamesBasePluginDirectory + gameName + "\\Data"));
             catalog.Catalogs.Add(new DirectoryCatalog(GamesBasePluginDirectory + gameName + "\\Views"));
-            catalog.Catalogs.Add(new DirectoryCatalog(GamesBasePluginDirectory + gameName + "\\Styles"));
             catalog.Catalogs.Add(new DirectoryCatalog(GamesBasePluginDirectory + gameName + "\\ExternalPlugins"));
             
             return new CompositionContainer(catalog);
