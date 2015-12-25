@@ -7,8 +7,8 @@
     <ProjectGuid>{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SQLiteDataPlugin</RootNamespace>
-    <AssemblyName>SQLiteDataPlugin</AssemblyName>
+    <RootNamespace>SineRequieDataPlugin</RootNamespace>
+    <AssemblyName>SineRequieDataPlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Mortus.cs" />
+    <Compile Include="Entities\MortusType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SineRequieDataProvider.cs" />
+    <Compile Include="SQLiteRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GMTools\GMTools.Dependencies\GMTools.Dependencies.csproj">
+      <Project>{70f1d287-bbdb-4d64-b88c-b5a87ec36c73}</Project>
+      <Name>GMTools.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GMTools\GMTools.Utilities\GMTools.Utilities.csproj">
+      <Project>{b0579eaf-7c64-4171-8df3-d0d36163ee37}</Project>
+      <Name>GMTools.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteORM\SQLiteORM.csproj">
+      <Project>{f59622a7-95e1-4479-be49-dea8eee8d9dd}</Project>
+      <Name>SQLiteORM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data.sqlite" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

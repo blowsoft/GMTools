@@ -44,8 +44,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\NavigationPropertyAttribute.cs" />
     <Compile Include="Custom\ICustomPlugin.cs" />
     <Compile Include="DataSet\IDataProvider.cs" />
+    <Compile Include="DataSet\IndexedEntity.cs" />
     <Compile Include="DataSet\IRepository.cs" />
     <Compile Include="Entity\IEntityDeleteView.cs" />
     <Compile Include="Entity\IEntitySearchView.cs" />

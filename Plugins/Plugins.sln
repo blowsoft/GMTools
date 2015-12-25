@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDataPlugin", "SQLiteDataPlugin\SQLiteDataPlugin.csproj", "{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SineRequieDataPlugin", "SQLiteDataPlugin\SineRequieDataPlugin.csproj", "{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteORM", "SQLiteORM\SQLiteORM.csproj", "{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMTools.Dependencies", "..\GMTools\GMTools.Dependencies\GMTools.Dependencies.csproj", "{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMTools.Utilities", "..\GMTools\GMTools.Utilities\GMTools.Utilities.csproj", "{B0579EAF-7C64-4171-8DF3-D0D36163EE37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataPlugins", "DataPlugins", "{1F8E0B8A-3B64-4DA9-8983-5617BA9D834D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +23,24 @@ Global
 		{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F1D287-BBDB-4D64-B88C-B5A87EC36C73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0579EAF-7C64-4171-8DF3-D0D36163EE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0579EAF-7C64-4171-8DF3-D0D36163EE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0579EAF-7C64-4171-8DF3-D0D36163EE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0579EAF-7C64-4171-8DF3-D0D36163EE37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E} = {1F8E0B8A-3B64-4DA9-8983-5617BA9D834D}
+		{F59622A7-95E1-4479-BE49-DEA8EEE8D9DD} = {1F8E0B8A-3B64-4DA9-8983-5617BA9D834D}
 	EndGlobalSection
 EndGlobal

@@ -23,8 +23,8 @@ namespace GMTools.Dependencies.DataSet
         /// <summary>
         /// Gets the repository for the specified entity type.
         /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
+        /// <param name="type">The type.</param>
         /// <returns></returns>
-        dynamic Repository(Type entityType);
+        dynamic Repository(Type type);
     }
 }
