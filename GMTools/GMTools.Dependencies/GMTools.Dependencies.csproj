@@ -54,6 +54,9 @@
     <Compile Include="Entity\IEntityEditView.cs" />
     <Compile Include="Entity\IEntityAddView.cs" />
     <Compile Include="Entity\IEntityDetailsView.cs" />
+    <Compile Include="Localization\ILocalizationProvider.cs" />
+    <Compile Include="Localization\LocalizedEntry.cs" />
+    <Compile Include="Localization\LocalizedEntryCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Style\IStyleProvider.cs" />
   </ItemGroup>

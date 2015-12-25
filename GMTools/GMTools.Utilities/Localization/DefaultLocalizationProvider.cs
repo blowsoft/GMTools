@@ -23,12 +23,12 @@ namespace GMTools.Utilities.Localization
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultLocalizationProvider"/> class.
         /// </summary>
-        public DefaultLocalizationProvider()
+        public DefaultLocalizationProvider(string game)
         {
-            var files = Directory.EnumerateFiles("Languages/", "*.xml");
+            var files = Directory.EnumerateFiles("Games\\" + game + "\\Languages\\", "*.xml");
             var serializer = new XmlSerializer(typeof(LocalizedEntryCollection));
 
-            foreach (var fileName in files.Select(Path.GetFileNameWithoutExtension))
+            foreach (var fileName in files)
             {
                 using (var reader = new StreamReader(fileName))
                 {
@@ -56,7 +56,7 @@ namespace GMTools.Utilities.Localization
             }
 
 
-            return "ENTRY NOT FOUND: " + key + " FOR TRANSLATION: " + language;
+            return "ENTRY NOT FOUND: " + key;
         }
     }
 }

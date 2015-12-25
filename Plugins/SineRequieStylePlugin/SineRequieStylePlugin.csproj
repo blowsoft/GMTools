@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B0579EAF-7C64-4171-8DF3-D0D36163EE37}</ProjectGuid>
+    <ProjectGuid>{57A621E3-8259-4CDB-A55A-BA5C6BA7FDC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GMTools.Utilities</RootNamespace>
-    <AssemblyName>GMTools.Utilities</AssemblyName>
+    <RootNamespace>SineRequieStylePlugin</RootNamespace>
+    <AssemblyName>SineRequieStylePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,27 +30,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystem\DirectoryChecker.cs" />
-    <Compile Include="Localization\DefaultLocalizationProvider.cs" />
-    <Compile Include="MEF\MefConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SineRequieStyle.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\GMTools.Dependencies\GMTools.Dependencies.csproj">
+    <ProjectReference Include="..\..\GMTools\GMTools.Dependencies\GMTools.Dependencies.csproj">
       <Project>{70f1d287-bbdb-4d64-b88c-b5a87ec36c73}</Project>
       <Name>GMTools.Dependencies</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

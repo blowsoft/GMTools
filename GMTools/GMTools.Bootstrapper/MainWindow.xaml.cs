@@ -1,17 +1,19 @@
-﻿using System;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.Linq;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using GMTools.Dependencies.DataSet;
-using GMTools.Utilities.FileSystem;
+using System.Windows.Markup;
 
 namespace GMTools.Bootstrapper
 {
     #region Usings
 
     using Utilities.MEF;
+    using Dependencies.DataSet;
+    using Dependencies.Localization;
+    using Utilities.FileSystem;
+    using Utilities.Localization;
 
     #endregion
 
@@ -27,6 +29,8 @@ namespace GMTools.Bootstrapper
         [Import(typeof(IDataProvider))]
         private IDataProvider _dataProvider;
 
+        private readonly ILocalizationProvider _localizationProvider;
+
         #endregion
 
         #region Constructor
@@ -41,6 +45,7 @@ namespace GMTools.Bootstrapper
             CheckDirectories();
 
             _mefContainer = MefConfigurator.Configure(Properties.Settings.Default.CurrentGame);
+            _localizationProvider = new DefaultLocalizationProvider(Properties.Settings.Default.CurrentGame);
 
             try
             {
@@ -49,6 +54,16 @@ namespace GMTools.Bootstrapper
             catch (CompositionException ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+
+            var styleFile = "Games\\" + Properties.Settings.Default.CurrentGame + "\\Style.xaml";
+
+            if (!File.Exists(styleFile)) return;
+            Application.Current.Resources.MergedDictionaries.Clear();
+
+            using (var reader = new FileStream(styleFile, FileMode.Open))
+            {
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary) XamlReader.Load(reader));
             }
         }
 
@@ -64,7 +79,6 @@ namespace GMTools.Bootstrapper
             DirectoryChecker.CheckIfExistsAndCreate(pluginDir);
             DirectoryChecker.CheckIfExistsAndCreate(pluginDir + "\\Data");
             DirectoryChecker.CheckIfExistsAndCreate(pluginDir + "\\Views");
-            DirectoryChecker.CheckIfExistsAndCreate(pluginDir + "\\Styles");
             DirectoryChecker.CheckIfExistsAndCreate(pluginDir + "\\ExternalPlugins");
         }
 
@@ -73,14 +87,18 @@ namespace GMTools.Bootstrapper
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             foreach (var type in _dataProvider.Entities)
             {
-                var tabItem = new TabItem { Header = type.Name };
+                var tabItem = new TabItem
+                {
+                    Header = _localizationProvider.GetLocalizedString(type.Name + "Header", Properties.Settings.Default.CurrentLanguage)
+                };
+
                 EntityTab.Items.Add(tabItem);
 
-                _dataProvider.Repository(type).GenerateTable();
+                await _dataProvider.Repository(type).GenerateTableAsync();
             }
         }
     }

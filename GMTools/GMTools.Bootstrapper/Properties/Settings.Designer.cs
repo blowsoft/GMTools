@@ -31,5 +31,14 @@ namespace GMTools.Bootstrapper.Properties {
                 return ((string)(this["CurrentGame"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        public string CurrentLanguage {
+            get {
+                return ((string)(this["CurrentLanguage"]));
+            }
+        }
     }
 }
