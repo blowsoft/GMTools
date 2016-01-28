@@ -39,7 +39,6 @@ namespace SineRequieDataPlugin.Entities
 		/// <value>
 		/// The type of the mortus.
 		/// </value>
-		[Ignore]
 		public MortusType MortusType { get; set; }
 
 		/// <summary>

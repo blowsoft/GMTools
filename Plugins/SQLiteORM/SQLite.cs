@@ -228,8 +228,10 @@ namespace SQLite
 			StoreDateTimeAsTicks = storeDateTimeAsTicks;
 			
 			BusyTimeout = TimeSpan.FromSeconds (0.1);
+
+			Orm.UnknownTypeFound += OrmOnUnknownTypeFound;
 		}
-		
+
 #if __IOS__
 		static SQLiteConnection ()
 		{
@@ -444,6 +446,11 @@ namespace SQLite
 			}
 			
 			return count;
+		}
+
+		private void OrmOnUnknownTypeFound(object sender, UnknownTypeFoundEventArgs unknownTypeFoundEventArgs)
+		{
+			CreateTable(unknownTypeFoundEventArgs.UnknownType);
 		}
 
         /// <summary>
@@ -1972,8 +1979,15 @@ namespace SQLite
 		}
 	}
 
+	public class UnknownTypeFoundEventArgs : EventArgs
+	{
+		public Type UnknownType { get; set; }
+	}
+
 	public static class Orm
 	{
+		public static event EventHandler<UnknownTypeFoundEventArgs> UnknownTypeFound; 
+
         public const int DefaultMaxStringLength = 140;
         public const string ImplicitPkName = "Id";
         public const string ImplicitIndexSuffix = "Id";
@@ -2030,7 +2044,12 @@ namespace SQLite
             } else if (clrType == typeof(Guid)) {
                 return "varchar(36)";
             } else {
-				throw new NotSupportedException ("Don't know about " + clrType);
+				if(UnknownTypeFound == null) throw new NotSupportedException ("Don't know about " + clrType);
+				
+				UnknownTypeFound.Invoke(null, new UnknownTypeFoundEventArgs
+					{
+						UnknownType = clrType
+					});
 			}
 		}
 

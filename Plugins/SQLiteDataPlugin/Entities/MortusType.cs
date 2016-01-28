@@ -40,6 +40,17 @@ namespace SineRequieDataPlugin.Entities
 		/// The modifier container.
 		/// </value>
 		[Ignore]
-		public ModifierContainer ModifierContainer { get; set; }
+		public ModifierContainer ModifierContainer 
+		{ 
+			get
+			{
+				var provider = new SineRequieDataProvider();
+				return provider.Repository(typeof (ModifierContainer)).GetAsync(ModifierContainerId).Result;
+			}
+			set
+			{
+				ModifierContainerId = value.Id;
+			}
+		}
     }
 }

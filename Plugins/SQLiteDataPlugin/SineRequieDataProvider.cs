@@ -59,6 +59,8 @@ namespace SineRequieDataPlugin
         {
             _repositories.Add(typeof(Mortus), new SQLiteRepository<Mortus>());
             _repositories.Add(typeof(MortusType), new SQLiteRepository<MortusType>());
+			_repositories.Add(typeof(ModifierContainer), new SQLiteRepository<ModifierContainer>());
+			_repositories.Add(typeof(StatContainer), new SQLiteRepository<StatContainer>());
         }
 
         /// <summary>
