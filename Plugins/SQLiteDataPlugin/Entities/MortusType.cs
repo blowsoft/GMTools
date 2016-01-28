@@ -24,5 +24,22 @@ namespace SineRequieDataPlugin.Entities
         /// The description.
         /// </value>
         public string Description { get; set; }
+
+		/// <summary>
+		/// Gets or sets the modifier container identifier.
+		/// </summary>
+		/// <value>
+		/// The modifier container identifier.
+		/// </value>
+		public int ModifierContainerId { get; set; }
+
+		/// <summary>
+		/// Gets or sets the modifier container.
+		/// </summary>
+		/// <value>
+		/// The modifier container.
+		/// </value>
+		[Ignore]
+		public ModifierContainer ModifierContainer { get; set; }
     }
 }

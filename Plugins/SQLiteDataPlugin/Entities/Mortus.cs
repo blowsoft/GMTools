@@ -1,5 +1,4 @@
-﻿using GMTools.Dependencies.Attributes;
-using GMTools.Dependencies.DataSet;
+﻿using GMTools.Dependencies.DataSet;
 using SQLite;
 
 namespace SineRequieDataPlugin.Entities
@@ -18,13 +17,46 @@ namespace SineRequieDataPlugin.Entities
         [PrimaryKey, AutoIncrement]
         public new int Id { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        [Indexed, NavigationProperty(typeof(MortusType))]
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>
+		/// The name.
+		/// </value>
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Gets or sets the mortus type identifier.
+		/// </summary>
+		/// <value>
+		/// The mortus type identifier.
+		/// </value>
         public int MortusTypeId { get; set; }
+
+		/// <summary>
+		/// Gets or sets the type of the mortus.
+		/// </summary>
+		/// <value>
+		/// The type of the mortus.
+		/// </value>
+		[Ignore]
+		public MortusType MortusType { get; set; }
+
+		/// <summary>
+		/// Gets or sets the stat container identifier.
+		/// </summary>
+		/// <value>
+		/// The stat container identifier.
+		/// </value>
+		public int StatContainerId { get; set; }
+
+		/// <summary>
+		/// Gets or sets the stat container.
+		/// </summary>
+		/// <value>
+		/// The stat container.
+		/// </value>
+		[Ignore]
+		public StatContainer StatContainer { get; set; }
     }
 }

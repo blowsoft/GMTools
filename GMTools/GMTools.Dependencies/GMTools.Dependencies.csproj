@@ -44,6 +44,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\CategoryAttribute.cs" />
     <Compile Include="Attributes\NavigationPropertyAttribute.cs" />
     <Compile Include="Custom\ICustomPlugin.cs" />
     <Compile Include="DataSet\IDataProvider.cs" />

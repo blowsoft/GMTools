@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ModifierContainer.cs" />
     <Compile Include="Entities\Mortus.cs" />
     <Compile Include="Entities\MortusType.cs" />
+    <Compile Include="Entities\StatContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SineRequieDataProvider.cs" />
     <Compile Include="SQLiteRepository.cs" />
