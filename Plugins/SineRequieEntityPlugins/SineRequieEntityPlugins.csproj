@@ -30,16 +30,69 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MortusType\MortusTypeDetailsView.xaml.cs">
+      <DependentUpon>MortusTypeDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MortusType\MortusTypeListView.xaml.cs">
+      <DependentUpon>MortusTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MortusType\MortusTypeSearchView.xaml.cs">
+      <DependentUpon>MortusTypeSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mortus\MortusDetailsView.xaml.cs">
+      <DependentUpon>MortusDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mortus\MortusSearchView.xaml.cs">
+      <DependentUpon>MortusSearchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MortusType\MortusTypeDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MortusType\MortusTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MortusType\MortusTypeSearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Mortus\MortusDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mortus\MortusSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\GMTools\GMTools.Dependencies\GMTools.Dependencies.csproj">
+      <Project>{70f1d287-bbdb-4d64-b88c-b5a87ec36c73}</Project>
+      <Name>GMTools.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteDataPlugin\SineRequieDataPlugin.csproj">
+      <Project>{51F52B9B-DAB2-48E6-8EE6-F2E30E0C217E}</Project>
+      <Name>SineRequieDataPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

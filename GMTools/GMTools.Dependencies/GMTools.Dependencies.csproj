@@ -46,11 +46,14 @@
   <ItemGroup>
     <Compile Include="Attributes\CategoryAttribute.cs" />
     <Compile Include="Attributes\NavigationPropertyAttribute.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Custom\ICustomPlugin.cs" />
     <Compile Include="DataSet\IDataProvider.cs" />
     <Compile Include="DataSet\IndexedEntity.cs" />
     <Compile Include="DataSet\IRepository.cs" />
+    <Compile Include="Entity\IEntityBaseView.cs" />
     <Compile Include="Entity\IEntityDeleteView.cs" />
+    <Compile Include="Entity\IEntityListView.cs" />
     <Compile Include="Entity\IEntitySearchView.cs" />
     <Compile Include="Entity\IEntityEditView.cs" />
     <Compile Include="Entity\IEntityAddView.cs" />
@@ -59,6 +62,9 @@
     <Compile Include="Localization\LocalizedEntry.cs" />
     <Compile Include="Localization\LocalizedEntryCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PluginPack\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
